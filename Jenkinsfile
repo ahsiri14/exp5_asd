@@ -16,7 +16,11 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploying application.'
+                sh '''
+                    mkdir -p "$HOME/Deployments/DemoApp"
+                    cp index.html "$HOME/Deployments/DemoApp/index.html"
+                    echo "Application deployed successfully."
+                '''
             }
         }
     }
